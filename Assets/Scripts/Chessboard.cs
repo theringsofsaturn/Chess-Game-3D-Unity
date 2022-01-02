@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chessboard : MonoBehaviour {
-    [Header("Art suff")]
-    [SerializeField]
-    private Material tileMaterial;
+  [Header("Art Assets")]
+  [SerializeField]
+  private Material tileMaterial;
 
   // LOGIC 
   private const int TILE_COUNT_X = 8;
@@ -48,6 +48,8 @@ public class Chessboard : MonoBehaviour {
 
     mesh.vertices = vertices;
     mesh.triangles = triangles;
+
+    mesh.RecalculateNormals(); // this is needed to make the lighting work
 
     tileObject.AddComponent<BoxCollider>(); // Add a box collider to the tile
 

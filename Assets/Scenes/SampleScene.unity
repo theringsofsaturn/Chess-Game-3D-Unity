@@ -342,3 +342,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591efb41e57bbc9459639ef81cd98d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileMaterial: {fileID: 2100000, guid: 8c7a6e3726b1bd6459ff04c09710fe3a, type: 2}
