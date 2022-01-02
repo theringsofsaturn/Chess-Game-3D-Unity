@@ -39,6 +39,9 @@ public class Chessboard : MonoBehaviour
         // Generate the geometry of the tile
         Vector3[] vertices = new Vector3[4]; // we have 4 corners of the tile
         vertices[0] = new Vector3(x * tileSize, 0, y * tileSize);
+        vertices[1] = new Vector3(x * tileSize, 0, (y + 1) * tileSize);
+        vertices[2] = new Vector3((x + 1) * tileSize, 0, (y + 1) * tileSize);
+        vertices[3] = new Vector3((x + 1) * tileSize, 0, y * tileSize);
 
         return tileObject;
     }
