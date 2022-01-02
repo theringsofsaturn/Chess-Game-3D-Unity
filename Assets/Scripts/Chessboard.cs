@@ -28,6 +28,9 @@ public class Chessboard : MonoBehaviour
 
     private GameObject GenerateSingleTile(float tileSize, int x, int y)
     {
-        throw new NotImplementedException();
+        GameObject tileObject = new GameObject(string.Format("X:{0}, Y:{1}", x, y));
+        tileObject.transform.parent = transform; // This is the Chesboard transform
+
+        return tileObject;
     }
 }
