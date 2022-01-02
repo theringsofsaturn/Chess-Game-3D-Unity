@@ -25,6 +25,14 @@ public class Chessboard : MonoBehaviour {
       currentCamera = Camera.current;
       return;
     }
+
+    RaycastHit info;
+    // Get the ray from the camera to the mouse position
+    Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
+    // If the ray hits a tile, highlight it
+    if (Physics.Raycast(ray, out info, 100, LayerMask.GetMask("Tile"))) {
+
+    }
   }
 
   // Generate the Board
@@ -59,6 +67,7 @@ public class Chessboard : MonoBehaviour {
 
     mesh.RecalculateNormals(); // this is needed to make the lighting work
 
+    tileObject.layer = LayerMask.NameToLayer("Tile"); // This is the layer that the raycast will detect
     tileObject.AddComponent<BoxCollider>(); // Add a box collider to the tile
 
     return tileObject;
