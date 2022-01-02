@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chessboard : MonoBehaviour {
+    [Header("Art suff")]
+    [SerializeField]
+    private Material tileMaterial;
+
   // LOGIC 
   private const int TILE_COUNT_X = 8;
   private const int TILE_COUNT_Y = 8;
@@ -31,7 +35,7 @@ public class Chessboard : MonoBehaviour {
     // To render a 3D object in Unity we need a mesh filter that contains the mesh and also a mesh renderer that will render the mesh
     Mesh mesh = new Mesh();
     tileObject.AddComponent<MeshFilter>().mesh = mesh;
-    tileObject.AddComponent<MeshRenderer>();
+    tileObject.AddComponent<MeshRenderer>().material = tileMaterial;
 
     // Generate the geometry of the tile
     Vector3[] vertices = new Vector3[4]; // we have 4 corners of the tile
