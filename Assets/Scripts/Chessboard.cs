@@ -9,6 +9,7 @@ public class Chessboard : MonoBehaviour
     private const int TILE_COUNT_X = 8;
     private const int TILE_COUNT_Y = 8;
     private GameObject[,] tiles;
+
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
@@ -30,6 +31,14 @@ public class Chessboard : MonoBehaviour
     {
         GameObject tileObject = new GameObject(string.Format("X:{0}, Y:{1}", x, y));
         tileObject.transform.parent = transform; // This is the Chesboard transform
+
+        // To render a 3D object in Unity we need a mesh filter that contains the mesh and also a mesh renderer that will render the mesh
+        MeshFilter meshFilter = tileObject.AddComponent<MeshFilter>();
+        MeshRenderer meshRenderer = tileObject.AddComponent<MeshRenderer>();
+
+        // Generate the geometry of the tile
+        Vector3[] vertices = new Vector3[4]; // we have 4 corners of the tile
+        vertices[0] = new Vector3(x * tileSize, 0, y * tileSize);
 
         return tileObject;
     }
