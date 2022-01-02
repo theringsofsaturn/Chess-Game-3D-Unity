@@ -12,13 +12,22 @@ public class Chessboard : MonoBehaviour {
   private const int TILE_COUNT_X = 8;
   private const int TILE_COUNT_Y = 8;
   private GameObject[,] tiles;
+  private Camera currentCamera;
 
   // Awake is called when the script instance is being loaded
   private void Awake() {
     GenerateAllTiles(1, 8, 8);
   }
 
-  // receiving two parameters: tile size and number of tiles
+  // Update is called once per frame
+  private void Update() {
+    if (!currentCamera) {
+      currentCamera = Camera.current;
+      return;
+    }
+  }
+
+  // Generate the Board
   private void GenerateAllTiles(float tileSize, int tileCountX, int tileCountY) {
     tiles = new GameObject[tileCountX, tileCountY];
     for (int x = 0; x < tileCountX; x++)
@@ -27,7 +36,6 @@ public class Chessboard : MonoBehaviour {
         tiles[x, y] = GenerateSingleTile(tileSize, x, y);
 
   }
-
   private GameObject GenerateSingleTile(float tileSize, int x, int y) {
     GameObject tileObject = new GameObject(string.Format("X:{0}, Y:{1}", x, y));
     tileObject.transform.parent = transform; // This is the Chesboard transform
