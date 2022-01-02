@@ -45,7 +45,7 @@ public class Chessboard : MonoBehaviour {
     mesh.vertices = vertices;
     mesh.triangles = triangles;
 
-    tileObject.AddComponent<MeshCollider>(); // Add a mesh collider to the tile
+    tileObject.AddComponent<BoxCollider>(); // Add a box collider to the tile
 
     return tileObject;
   }
