@@ -40,8 +40,10 @@ public class Chessboard : MonoBehaviour
         Vector3[] vertices = new Vector3[4]; // we have 4 corners of the tile
         vertices[0] = new Vector3(x * tileSize, 0, y * tileSize);
         vertices[1] = new Vector3(x * tileSize, 0, (y + 1) * tileSize);
-        vertices[2] = new Vector3((x + 1) * tileSize, 0, (y + 1) * tileSize);
-        vertices[3] = new Vector3((x + 1) * tileSize, 0, y * tileSize);
+        vertices[2] = new Vector3((x + 1) * tileSize, 0, y * tileSize);
+        vertices[3] = new Vector3((x + 1) * tileSize, 0, (y + 1) * tileSize);
+
+        int[] triangles = new int[] { 0, 1, 2, 1, 3, 2 }; // the order of the vertices that make up the triangles
 
         return tileObject;
     }
